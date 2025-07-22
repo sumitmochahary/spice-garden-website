@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spice Garden Restaurant</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+    </style>
+    <!-- Bootstrap Icon-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/order.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+            <div class="container">
+                <!-- Logo -->
+                <span class="navbar-brand fw-bold logo text-danger">Spice Garden</span>
+
+                <!-- Mobile Menu Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation Links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#testimonials">Stories</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#foot">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="order.html">Place Order</a></li>
+                        <li class="nav-item">
+                            <a class="btn btn-warning text-dark fw-bold rounded-pill px-2"
+                                href="index.html#reservation">Book a
+                                Table</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Bootstrap Script -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </header>
+
+    <section class="hero-section text-dark bg-dark bg-opacity-50">
+        <div class="container col-md-9">
+            <form class="bg-light p-3">
+                <h3 class="fw-bold logo text-danger text-center">Order Details</h3>
+                <div class="form-group mb-2">
+                    <label for="orderid">Order Id:</label>
+                    <input type="text" class="form-control" id="order-id" required>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="customername">Customer Name:</label>
+                    <input type="text" class="form-control" id="customer-name" required>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="emailid">Email Id:</label>
+                    <input type="email" class="form-control" id="email-id" required>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="contactnumber">Contact Number:</label>
+                    <input type="text" class="form-control" id="contact-number" pattern="[0-9]{10}" required>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="contactnumber">Order Date:</label>
+                    <input type="date" class="form-control" id="order-date" required>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="address">Address:</label>
+                    <textarea type="text" class="form-control" id="order-address" rows="4" required></textarea>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="addorder">Add Order:</label>
+                    <button type="button" onclick="addOrder()">+</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="table">
+                            <tr>
+                                <th scope="col">Category Name</th>
+                                <th scope="col">Item Name</th>
+                                <th scope="col">Item Price(INR)</th>
+                                <th scope="col">Item Quantity</th>
+                                <th scope="col">Sub Total(INR)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderTableBody">
+                            <!-- Order item should be displayed here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="totalamount">Total Amount(INR):</label>
+                    <output></output>
+                </div>
+                <button type="submit" class="btn btn-warning">Order Now</button>
+            </form>
+        </div>
+    </section>
+
+    <footer id="foot" class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Column 1: About Spice Garden -->
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Spice Garden</h5>
+                    <p class="text-secondary">Experience the best flavors with our authentic dishes made from the
+                        freshest
+                        ingredients.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-secondary me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-secondary me-3"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-secondary me-3"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Opening Hours -->
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Opening Hours</h5>
+                    <p class="text-secondary"><strong>Monday - Thursday:</strong> 9:00 AM - 12:00 AM</p>
+                    <p class="text-secondary"><strong>Friday - Saturday:</strong> 9:00 AM - 2:00 AM</p>
+                    <p class="text-secondary"><strong>Sunday:</strong> 9:00 AM - 2:00 AM</p>
+                </div>
+
+                <!-- Column 3: Newsletter Subscription -->
+                <div class="col-md-4">
+                    <h5 class="mb-3">Subscribe to Our Newsletter</h5>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email" required>
+                            <button type="submit" class="btn btn-danger btn-sm">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Copyright Row -->
+                <div class="row">
+                    <div class="col text-center">
+                        <p class="mt-4 text-secondary">&copy; 2025 Spice Garden. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+    </footer>
+</body>
+
+</html>

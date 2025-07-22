@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spice Garden Restaurant</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Custom Font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+    </style>
+    <!-- Bootstrap Icon-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/reserve.js"></script>
+</head>
+
+<body>
+    <header class="sticky-top">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+            <div class="container">
+                <!-- Logo -->
+                <span class="navbar-brand fw-bold logo text-danger">Spice Garden</span>
+
+                <!-- Mobile Menu Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation Links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#testimonials">Stories</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#foot">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="order.html">Place Order</a></li>
+                        <li class="nav-item">
+                            <a class="btn btn-warning text-dark fw-bold rounded-pill px-2" href="#reservation">Book a
+                                Table</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Bootstrap Script -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </header>
+    <!-- Hero Section -->
+    <section
+        class="hero-section d-flex align-items-center justify-content-center text-center text-white bg-dark bg-opacity-50">
+        <div class="container position-relative z-2">
+            <h1 class="display-3 fw-bold hero-title text-danger">Spice Garden</h1>
+            <p class="lead hero-subtitle text-white">Best Restaurant</p>
+        </div>
+    </section>
+    <!-- Signature Dishes Section -->
+    <section class="signature-dishes text-center bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="images/dish1.jpeg" alt="Dish 1" class="img-fluid rounded-circle mb-2 dish-img">
+                    <p class="mt-2 mb-0">Grilled Paneer with Potatoes</p>
+                    <p class="mt-0">Paneer, Potatoes, Rice, Tomatoes</p>
+                </div>
+                <div class="col-md-3">
+                    <img src="images/dish2.jpeg" alt="Dish 2" class="img-fluid rounded-circle mb-2 dish-img">
+                    <p class="mt-2 mb-0">Pasta con i peperoni cruschi</p>
+                    <p class="mt-0">Pasta, Corn and Perproni</p>
+                </div>
+                <div class="col-md-3">
+                    <img src="images/dish3.jpeg" alt="Dish 3" class="img-fluid rounded-circle mb-2 dish-img">
+                    <p class="mt-2 mb-0">Green bean casserole</p>
+                    <p class="mt-0">Beans, Potato, Onion and Paratha</p>
+                </div>
+                <div class="col-md-3">
+                    <img src="images/dish4.jpeg" alt="Dish 4" class="img-fluid rounded-circle mb-2 dish-img">
+                    <p class="mt-2 mb-0">Fettuccine al Pomodoro</p>
+                    <p class="mt-0">Lettuce, Tomato, Wheat and Millets</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="container about-section">
+        <div class="row align-items-center">
+            <!-- Left Side: Staggered Images -->
+            <div class="col-md-6">
+                <div class="d-flex flex-column flex-md-row align-items-center gap-3 mx-2">
+                    <div class="w-100 w-md-50">
+                        <img src="images/garnish.jpeg" alt="Delicious Food" class="img-fluid rounded shadow-lg w-100">
+                    </div>
+                    <div class="w-100 w-md-50 mt-3 mt-md-5">
+                        <img src="images/interior.jpeg" alt="Spice Garden Interior"
+                            class="img-fluid rounded shadow-lg w-100">
+                    </div>
+                </div>
+            </div>
+            <!-- Right Side: Text Content -->
+            <div class="col-md-6 p-5">
+                <h2 class="about-title text-danger">About Spice Garden</h2>
+                <p class="about-text">
+                    At Spice Garden, we are more than just a restaurant; we are a culinary journey, a symphony of
+                    flavors, and a celebration of culture. Our passion for authentic cuisine and dedication to
+                    exceptional dining experience have made us a beloved destination for food enthusiasts and
+                    connoisseurs alike. With a rich heritage of flavors, our dishes are carefully crafted using
+                    time-honored recipes and the finest ingredients scourced from around the world. We invite you to
+                    embark on a gastronomic adventure with us, where every meal is a story waiting to be savoured.
+                </p>
+                <p class="about-timings"><strong>Mon-Fri:</strong> 8:00 AM - 11:00 PM</p>
+                <p class="about-contact">+1-978-321-4532</p>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- Catering Section -->
+    <section id="catering" class="py-5 bg-light">
+        <div class="container text-center mb-5">
+            <h2 class="catering-title text-danger mb-5 mt-5">Catering Services</h2>
+            <div class="row">
+                <!-- Birthday Party -->
+                <div class="col-md-4 col-sm-12">
+                    <div class="service-item">
+                        <i class="bi bi-cake2-fill text-dark fs-1 mb-3"></i>
+                        <h4>Birthday Party</h4>
+                        <p class="mt-3">Make your special day even more memorable with our catering services tailored
+                            for birthday celebrations. From delicious cakes to a wide range of cuisines, we've got you
+                            covered.</p>
+                    </div>
+                </div>
+                <!-- Business Meetings -->
+                <div class="col-md-4 col-sm-12">
+                    <div class="service-item">
+                        <i class="bi bi-briefcase-fill text-dark fs-1 mb-3"></i>
+                        <h4>Business Meetings</h4>
+                        <p class="mt-3">Elevate your corporate evetns with our professional catering services. We
+                            provide gourmet meals and a comfortable atmosphere for successful business meetings.</p>
+                    </div>
+                </div>
+                <!-- Wedding Party -->
+                <div class="col-md-4 col-sm-12">
+                    <div class="service-item">
+                        <i class="bi bi-gift-fill text-dark fs-1 mb-3"></i>
+                        <h4>Wedding Party</h4>
+                        <p class="mt-3">Your special day deserves the finest catering. Let us create a memorable wedding
+                            feast that reflects your love story and delights your guests.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Menu Section -->
+    <section id="menu" class="py-5 bg-white">
+        <div class="container px-2">
+            <h2 class="menu-title text-danger text-center mb-4">Specialties Our Menu</h2>
+
+            <!-- Row 1 -->
+            <div class="row g-4 mb-4 mx-0">
+                <!-- Dish 1 -->
+                <div class="col-lg-6 d-lg-flex flex-lg-row flex-column align-items-center px-0">
+                    <div class="col-12 col-lg-6 order-lg-1 p-2">
+                        <img src="images/menu1.jpg" class="img-fluid rounded shadow" alt="Grilled Paneer with Potatoes">
+                    </div>
+                    <div class="col-12 col-lg-6 order-lg-2 text-center p-2">
+                        <h5>Grilled Paneer with Potatoes</h5>
+                        <p class="text-muted">Paneer, Potato, Rice and Tomatoes</p>
+                        <p class="text-muted">₹ 275</p>
+                        <button class="btn btn-danger btn-sm">Order Now</button>
+                    </div>
+                </div>
+                <!-- Dish 2 -->
+                <div class="col-lg-6 d-lg-flex flex-lg-row flex-column align-items-center px-0">
+                    <div class="col-12 col-lg-6 order-lg-1 p-2">
+                        <img src="images/menu2.jpg" class="img-fluid rounded shadow" alt="Pasta con i peperoni cruschi">
+                    </div>
+                    <div class="col-12 col-lg-6 order-lg-2 text-center p-2">
+                        <h5>Pasta con i peperoni cruschi</h5>
+                        <p class="text-muted">Pasta, Chorn, Perproni and Tomato Sauce</p>
+                        <p class="text-muted">₹ 350</p>
+                        <button class="btn btn-danger btn-sm">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2 (REVERSED STACK ORDER) -->
+            <div class="row g-4 mb-4 mx-0">
+                <!-- Dish 3 (Details First) -->
+                <div class="col-lg-6 d-lg-flex flex-lg-row flex-column align-items-center px-0">
+                    <div class="col-12 col-lg-6 order-1 order-lg-2 p-2">
+                        <img src="images/menu3.jpg" class="img-fluid rounded shadow" alt="Green bean casserole">
+                    </div>
+                    <div class="col-12 col-lg-6 order-2 order-lg-1 text-center p-2">
+                        <h5>Green bean casserole</h5>
+                        <p class="text-muted">Beans, Potato, Onion and Paratha</p>
+                        <p class="text-muted">₹ 225</p>
+                        <button class="btn btn-danger btn-sm">Order Now</button>
+                    </div>
+                </div>
+                <!-- Dish 4 (Details First) -->
+                <div class="col-lg-6 d-lg-flex flex-lg-row flex-column align-items-center px-0">
+                    <div class="col-12 col-lg-6 order-1 order-lg-2 p-2">
+                        <img src="images/menu4.jpg" class="img-fluid rounded shadow" alt="Fettuccine al Pomodoro">
+                    </div>
+                    <div class="col-12 col-lg-6 order-2 order-lg-1 text-center p-2">
+                        <h5>Fettuccine al Pomodoro</h5>
+                        <p class="text-muted">Lettuce, Tomato, Wheat and Millets</p>
+                        <p class="text-muted">₹ 325</p>
+                        <button class="btn btn-danger btn-sm">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="row g-4 mx-0">
+                <!-- Dish 5 -->
+                <div class="col-lg-6 d-lg-flex flex-lg-row flex-column align-items-center px-0">
+                    <div class="col-12 col-lg-6 order-lg-1 p-2">
+                        <img src="images/menu5.jpg" class="img-fluid rounded shadow"
+                            alt="Buttery Sauteed Mushrooms with Fresh Herbs">
+                    </div>
+                    <div class="col-12 col-lg-6 order-lg-2 text-center p-2">
+                        <h5>Buttery Sauteed Mushrooms with Fresh Herbs</h5>
+                        <p class="text-muted">Mushrooms, Paratha, Herbs and Tomatoes</p>
+                        <p class="text-muted">₹ 275</p>
+                        <button class="btn btn-danger btn-sm">Order Now</button>
+                    </div>
+                </div>
+                <!-- Dish 6 -->
+                <div class="col-lg-6 d-lg-flex flex-lg-row flex-column align-items-center px-0">
+                    <div class="col-12 col-lg-6 order-lg-1 p-2">
+                        <img src="images/menu6.jpg" class="img-fluid rounded shadow"
+                            alt="Honey dipped with Waffel dessert">
+                    </div>
+                    <div class="col-12 col-lg-6 order-lg-2 text-center p-2">
+                        <h5>Honey dipped with Waffel dessert</h5>
+                        <p class="text-muted">Honey, Waffel, Strawberries and Cherries</p>
+                        <p class="text-muted">₹ 300</p>
+                        <button class="btn btn-danger btn-sm">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Chef Section -->
+    <section id="chef" class="py-5 bg-dark">
+        <div class="container text-center">
+            <h2 class="chef-title text-danger mb-4">Our Master Chef</h2>
+            <div class="row g-4">
+                <!-- Chef 1 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card border-0 p-3 bg-dark">
+                        <img src="images/owner.jpg" class="img-fluid mb-3" alt="John Restaurant Owner">
+                        <h5 class="fw-bold text-white">John Doe</h5>
+                        <p class="text-white">Restaurant Owner</p>
+                        <div>
+                            <a href="#" class="text-white me-2"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chef 2 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card border-0 p-3 bg-dark">
+                        <img src="images/masterchef1.jpg" class="img-fluid mb-3" alt="Master Chef Jane">
+                        <h5 class="fw-bold text-white">Jane Smith</h5>
+                        <p class="text-white">Master Chef</p>
+                        <div>
+                            <a href="#" class="text-white me-2"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chef 3 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card border-0 p-3 bg-dark">
+                        <img src="images/masterchef2.jpg" class="img-fluid mb-3" alt="Master Chef Maria">
+                        <h5 class="fw-bold text-white">Maria Garcia</h5>
+                        <p class="text-white">Master Chef</p>
+                        <div>
+                            <a href="#" class="text-white me-2"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chef 4 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card border-0 p-3 bg-dark">
+                        <img src="images/femalechef.jpg" class="img-fluid mb-3" alt="Chef Mia">
+                        <h5 class="fw-bold text-white">Michael Johnson</h5>
+                        <p class="text-white">Chef</p>
+                        <div>
+                            <a href="#" class="text-white me-2"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Reservation Section -->
+    <section id="reservation" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Reservation Form -->
+                <div class="col-lg-6 col-md-8 p-4 bg-white rounded shadow">
+                    <h2 class="form-title text-center text-danger mb-4">Book a Table</h2>
+                    <form onsubmit="reserve(event)">
+                        <!-- Name -->
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" id="userName" class="form-control" placeholder="Enter your name"
+                                required>
+                        </div>
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" id="userEmail" class="form-control" placeholder="Enter your email"
+                                required>
+                        </div>
+                        <!-- Phone -->
+                        <div class="mb-3">
+                            <label class="form-label">Phone</label>
+                            <input type="tel" id="userPhone" class="form-control" placeholder="Enter your phone number"
+                                pattern="[0-9]{10}" required>
+                        </div>
+                        <!-- Date & Time -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Date</label>
+                                <input type="date" id="inputDate" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Time</label>
+                                <input type="time" id="inputTime" class="form-control" required>
+                            </div>
+                        </div>
+                        <!-- Number of Persons -->
+                        <div class="mb-3">
+                            <label class="form-label">Number of Persons</label>
+                            <select class="form-select" id="numPersons" required>
+                                <option selected disabled>Choose...</option>
+                                <option value="1">1 Person</option>
+                                <option value="2">2 Persons</option>
+                                <option value="3">3 Persons</option>
+                                <option value="4">4 Persons</option>
+                                <option value="5+">5+ Persons</option>
+                            </select>
+                        </div>
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-danger w-100">Make a Reservation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonial Section -->
+    <section id="testimonials" class="py-5 bg-dark">
+        <div class="container">
+            <h2 class="testimonial-title text-danger text-center mb-4">Happy Customers</h2>
+            <div class="row text-center">
+
+                <!-- Testimonial 1 -->
+                <div class="col-md-4 py-2">
+                    <div class="testimonial-card p-4 bg-white rounded shadow">
+                        <img src="images/customer1.jpg" alt="Customer 1" class="rounded-circle mb-3" width="150">
+                        <p class="italics-text">"Spice Garden is a culinary gem! The flavors in every dish are
+                            exceptional, and the ambiance is truely welcoming. My family and I have had countless
+                            memorable dinners here."</p>
+                        <h5 class="text-dark">John Doe</h5>
+                        <p class="text-uppercase small text-muted">Customer</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="col-md-4 py-2">
+                    <div class="testimonial-card p-4 bg-white rounded shadow">
+                        <img src="images/customer2.jpg" alt="Customer 2" class="rounded-circle mb-3" width="150">
+                        <p class="italics-text">"I recently hosted a birthday party at Spice Garden, and it was a huge
+                            success. The catering service and the food quality were outstanding. I couldn't be happier
+                            with the experience!"</p>
+                        <h5 class="text-dark">Jane Smith</h5>
+                        <p class="text-uppercase small text-muted">Customer</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="col-md-4 py-2">
+                    <div class="testimonial-card p-4 bg-white rounded shadow">
+                        <img src="images/customer3.jpg" alt="Customer 3" class="rounded-circle mb-3" width="150">
+                        <p class="italics-text">"My wedding reception at Spice Garden was nothing short of magical. The
+                            beautiful venue, the menu, and the outstanding service exceeded our expectations. Our guests
+                            still rave about it!"</p>
+                        <h5 class="text-dark">Maria Garcia</h5>
+                        <p class="text-uppercase small text-muted">Customer</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Recent Post Section -->
+    <section id="recent-posts" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="post-title text-danger text-center mb-4">Recent Posts</h2>
+            <div class="row">
+
+                <!-- Blog Post 1 -->
+                <div class="col-md-4">
+                    <div class="post-card bg-white p-3">
+                        <div class="position-relative">
+                            <img src="images/post1.jpg" class="img-fluid rounded mb-3" alt="Post 1">
+                            <span class="date-badge text-secondary">September 15, 2023</span>
+                        </div>
+                        <h5 class="mt-2 text-dark">Exploring Flavors From Around the World</h5>
+                        <a href="#" class="text-danger fw-bold">Read more →</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="col-md-4">
+                    <div class="post-card bg-white p-3">
+                        <div class="position-relative">
+                            <img src="images/post2.jpg" class="img-fluid rounded mb-3" alt="Post 2">
+                            <span class="date-badge text-secondary">August 28, 2023</span>
+                        </div>
+                        <h5 class="mt-2 text-dark">The Art of Spice: A Culinary Journey</h5>
+                        <a href="#" class="text-danger fw-bold">Read more →</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="col-md-4">
+                    <div class="post-card bg-white p-3">
+                        <div class="position-relative">
+                            <img src="images/post3.jpg" class="img-fluid rounded mb-3" alt="Post 3">
+                            <span class="date-badge text-secondary">July 10, 2023</span>
+                        </div>
+                        <h5 class="mt-2 text-dark">Taste the Delicious Food in India and Europe</h5>
+                        <a href="#" class="text-danger fw-bold">Read more →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Footer Section -->
+    <footer id="foot" class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Column 1: About Spice Garden -->
+                <div class="col-md-4">
+                    <h5 class="mb-3">Spice Garden</h5>
+                    <p class="text-secondary">Experience the best flavors with our authentic dishes made from the
+                        freshest ingredients.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-secondary me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-secondary me-3"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-secondary me-3"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Opening Hours -->
+                <div class="col-md-4">
+                    <h5 class="mb-3">Opening Hours</h5>
+                    <p class="text-secondary"><strong>Monday - Thursday:</strong> 9:00 AM - 12:00 AM</p>
+                    <p class="text-secondary"><strong>Friday - Saturday:</strong> 9:00 AM - 2:00 AM</p>
+                    <p class="text-secondary"><strong>Sunday:</strong> 9:00 AM - 2:00 AM</p>
+                </div>
+
+                <!-- Column 3: Newsletter Subscription -->
+                <div class="col-md-4">
+                    <h5 class="mb-3">Subscribe to Our Newsletter</h5>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email" required>
+                            <button type="submit" class="btn btn-danger btn-sm">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+
+
+                <!-- Copyright Row -->
+                <div class="row mt-4">
+                    <div class="col text-center">
+                        <p class="mt-4 text-secondary">&copy; 2025 Spice Garden. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+    </footer>
+</body>
+
+</html>
